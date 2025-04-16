@@ -1,7 +1,7 @@
 # sistema/urls.py
 from django.contrib import admin
 from django.urls import path
-from sistema.views import Login  # Esta importação deve corresponder exatamente
+from sistema.views import Login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
