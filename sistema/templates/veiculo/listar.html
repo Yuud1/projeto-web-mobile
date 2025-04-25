@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Veículos</title>
+    <link rel="stylesheet" href="{% static 'styles/listar.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">MeuApp</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Criar Anúncio</a>
+            <a href="#">Perfil</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        <h2>Veículos Disponíveis</h2>
+        <p class="total">{{ veiculos|length }} veículo(s) encontrado(s)</p>
+
+        <div class="veiculo-lista">
+            {% for veiculo in veiculos %}
+                <div class="veiculo-card">
+                    <div class="veiculo-info">
+                        <strong>Marca:</strong> {{ veiculo.get_marca_display }}
+                    </div>
+                    <div class="veiculo-info">
+                        <strong>Modelo:</strong> {{ veiculo.modelo }}
+                    </div>
+                    <div class="veiculo-info">
+                        <strong>Ano:</strong> {{ veiculo.ano }}
+                    </div>
+                    <div class="veiculo-info">
+                        <strong>Cor:</strong> {{ veiculo.get_cor_display }}
+                    </div>
+                    <div class="veiculo-info">
+                        <strong>Combustível:</strong> {{ veiculo.get_combustivel_display }}
+                    </div>
+                </div>
+            {% empty %}
+                <p>Nenhum veículo encontrado.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

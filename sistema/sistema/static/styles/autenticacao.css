@@ -16,9 +16,10 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 400px;
+    transition: height 0.3s ease;
 }
 
-.login-box h2 {
+h2 {
     text-align: center;
     margin-bottom: 30px;
     color: #333;
@@ -30,11 +31,12 @@ body {
 }
 
 .input-group input {
-    width: 100%;
-    padding: 12px;
+    width: 100%; /* Garantir que o input tenha 100% de largura */
+    padding: 12px; /* O mesmo padding do botão */
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
+    box-sizing: border-box; /* Garante que o padding não afete a largura */
     transition: 0.3s;
 }
 
@@ -48,9 +50,9 @@ body {
     color: #666;
 }
 
-.login-box button {
-    width: 100%;
-    padding: 12px;
+button {
+    width: 100%; /* Garantir que o botão tenha 100% de largura */
+    padding: 12px; /* O mesmo padding dos inputs */
     background: #2980b9;
     color: white;
     border: none;
@@ -58,22 +60,40 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
+    box-sizing: border-box; /* Garante que o padding não afete a largura */
 }
 
-.login-box button:hover {
+button:hover {
     background: #2573a6;
 }
 
-.login-box .register-link {
+.register-link {
     text-align: center;
     margin-top: 15px;
 }
 
-.login-box .register-link a {
+.register-link a {
     color: #2980b9;
     text-decoration: none;
 }
 
-.login-box .register-link a:hover {
+.register-link a:hover {
     text-decoration: underline;
+}
+
+/* Responsivo para telas pequenas (até 480px) */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 20px 25px;
+    }
+}
+
+@media (max-width: 400px) {
+    .login-box {
+        padding: 15px 20px;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }
